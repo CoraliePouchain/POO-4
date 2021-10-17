@@ -1,5 +1,7 @@
 <?php
 
+require_once './../Vehicle/Vehicle.php';
+
 abstract class HighWay 
 {
     protected array $currentVehicles;
@@ -8,7 +10,7 @@ abstract class HighWay
 
     protected int $maxSpeed;
 
-    abstract function addVehicle(string $vehicle);
+    abstract function addVehicle(Vehicle $vehicle);
 
     public function __construct(int $nbLane, int $maxSpeed)
     {
