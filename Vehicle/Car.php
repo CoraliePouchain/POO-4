@@ -37,22 +37,9 @@ class Car extends Vehicle
 
     public function start()
     {
-        try 
-        {
-            if($this->getHasParkBrake() !== true){
-                throw new Exception('Careful park brake engaged !' . '<br>');
-            }
-            echo 'You\'re all good' . '<br>';
+        if($this->getHasParkBrake() === true){
+            throw new Exception('Careful park brake engaged !' . '<br>');
         }
-
-        catch(Exception $e)
-        {
-            echo 'Exception received: '. $e->getMessage();
-        } 
-
-        finally
-        {
-            echo 'Ma voiture roule comme un donut';
-        }
+        return 'You\'re all good' . '<br>';
     }
 }
