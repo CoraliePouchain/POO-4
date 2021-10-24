@@ -1,8 +1,8 @@
 <?php
 
-require_once './Bicycle.php';
-require_once './Car.php';
-require_once './Truck.php';
+require_once './Vehicle/Bicycle.php';
+require_once './Vehicle/Car.php';
+require_once './Vehicle/Truck.php';
 
 /*
 //instanciation de la classe Bicycle.php
@@ -53,7 +53,7 @@ var_dump($car);
 
 
 var_dump(Vehicle::ALLOWED_ENERGIES);
-*/
+
 
 
 $monsterTruck = new Truck(10, 'blue', 2, 'fuel');
@@ -80,6 +80,12 @@ echo $tractor->forward() . '<br>';
 echo 'Vitesse actuelle: ' . $tractor->getCurrentSpeed() . 'km/h' . '<br>';
 echo $tractor->brake() . '<br>';
 echo 'Vitesse actuelle: ' . $tractor->getCurrentSpeed() . 'km/h' . '<br>';
+*/
+
+$car = new Car('green', 4, 'electric');
+echo $car->setHasParkBrake(true);
+
+echo $car->start();
 
 
 

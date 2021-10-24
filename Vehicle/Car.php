@@ -1,15 +1,10 @@
 <?php
 
-require_once './Vehicle.php';
+require_once 'Vehicle.php';
 
 class Car extends Vehicle
 {
-    /*public const ALLOWED_ENERGIES = [
-        'fuel',
-        'electric',
-    ];*/
-
-    //private string $fuelType;
+    private bool $hasParkBrake = true;
 
     private int $currentFuelLevel;
 
@@ -20,19 +15,6 @@ class Car extends Vehicle
         $this->fuelType = $fuelType;
     }
 
-    /*public function getFuelType(): string
-    {
-        return $this->fuelType;
-    }
-
-    public function setFuelType(string $fuelType): Vehicle
-    {
-        if (in_array($energy, parent::ALLOWED_ENERGIES)){
-        $this->energy = $energy;
-        }
-        return $this;
-    }*/
-
     public function getCurrentFuelLevel(): int
     {
         return $this->currentFuelLevel;
@@ -41,5 +23,36 @@ class Car extends Vehicle
     public function setCurrentFuelLevel(): void
     {
         $this->currentFuelLevel;
+    }
+
+    public function setHasParkBrake(bool $hasParkBrake): void
+    {
+        $this->hasParkBrake = $hasParkBrake;
+    }
+
+    public function getHasParkBrake()
+    {
+        return $this->hasParkBrake;
+    }
+
+    public function start()
+    {
+        try 
+        {
+            if($this->getHasParkBrake() !== true){
+                throw new Exception('Careful park brake engaged !' . '<br>');
+            }
+            echo 'You\'re all good' . '<br>';
+        }
+
+        catch(Exception $e)
+        {
+            echo 'Exception received: '. $e->getMessage();
+        } 
+
+        finally
+        {
+            echo 'Ma voiture roule comme un donut';
+        }
     }
 }
